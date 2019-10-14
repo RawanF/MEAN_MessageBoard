@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Message Board</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>The Dojo Message Board</h1>
+
+        <div id="contant">
+            <% if(messages.AddMessage) { %>
+            <% for (var x of messages.AddMessage) { %>
+            <h3><%= x %></h3>
+            <% } %>
+            <% } %>
+            <form action="/newMessage" method="POST" id="form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Message:</label>
+                    <textarea class="form-control" name="msg" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn">Post Message</button>
+            </form>
+            <hr>
+            <div id="msgArea">
+                <% if ( messages.length==0) { %>
+                <h3 id="NoMessage">No messages in the database</h3>
+                <% }else{ %>
+                <h1>All messages From Data Base</h1>
+                <%for (var m of messages) { %>
+
+                <h2>Name: <%= m.name %></h2>
+                <h2>Message: <%= m.message %></h2>
+                <h2>Comments:</h2>
+                <div id="commentsArea">
+
+                    <% for (var c of m.comments) { %>
+                    <h5>Name:<%= c.name %></h5>
+                    <h5>Comment:<%= c.comment %> </h5>
+                    <hr>
+                    <% }%>
+                
+
+                    <h4>Add a New Comment: </h4>
+                    <% if(messages.AddComment) { %>
+                        <% for (var x of messages.AddComment) { %>
+                        <h3><%= x %></h3>
+                        <% } %>
+                        <% } %>
+                    <form action="/newComment" method="POST" id="form">
+                        <input name="MSGid" value="<%= m._id %>" hidden>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Comment:</label>
+                            <textarea class="form-control" name="comment" rows="3" ></textarea>
+                        </div>
+                        <button type="submit" class="btn">Post Comment</button>
+                    </form>
+
+                </div>
+
+                <hr>
+                <% } }%>
+
+                <br><br>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

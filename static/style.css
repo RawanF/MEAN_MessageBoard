@@ -1,0 +1,60 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    /* outline: solid 1px pink; */
+    font-family: sans-serif;
+}
+h1{
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+margin-bottom: 30px;
+color: darkslateblue;
+}
+#wrapper {
+    margin: 0px auto;
+    width: 1200px;
+    text-align: center;
+    padding-top: 10px;
+}
+#contant{
+   text-align: center; 
+   margin-left: 350px;
+}
+#contant2{
+    text-align: left; 
+    margin-top: 100px;
+    margin-left: 270px;
+ }
+ h5{
+     /* padding-right: 20px; */
+     /* display: inline-block; */
+     /* padding: 10px; */
+     color: darkslateblue;
+ }
+ span{
+     font-size: 16px;
+     font-weight: bolder;
+ }
+#form{
+    width: 500px;
+    text-align: left;
+    border: 1px solid darkslateblue;
+    padding: 20px;
+
+}
+
+.btn{
+    background-color: darkslateblue;
+    color: white;
+}
+
+#commentsArea{
+    margin-left: 200px;
+}
+#NoMessage{
+    color: gray;
+    margin-right: 320px;
+}
+#msgArea{
+    margin-right: 320px;
+text-align: left;
+}
